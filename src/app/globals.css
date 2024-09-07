@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'flowbite';
+
+@layer utilities {
+  .ellipsis {
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+  }
+}
+
+@layer hideScrollBar {
+  /* styles.css */
+  .hide-scrollbar {
+    overflow: auto; /* Ensures the content is scrollable */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    scrollbar-width: none; /* For Firefox */
+  }
+}
+
+@layer components {
+  .form-bg::before,
+  .form-bg::after {
+    @apply inset-0 bg-cover bg-center;
+    content: "";
+    z-index: -1;
+  }
+
+  .form-bg::before {
+    position: relative;
+    background-image: url("../../public/landingPage/enrollFormImage1.png");
+    width: 400px;
+    height: 400px;
+    z-index: 10;
+    background-position: top;
+  }
+
+  .form-bg::after {
+    background-image: url("../../public/landingPage/enrollFormImage2.png");
+    width: 400px;
+    height: 400px;
+    z-index: 10;
+    background-position: top;
+  }
+}
+
+.bg-texture {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.2) 10px,
+    rgba(255, 255, 255, 0.2) 20px
+  );
+  background-blend-mode: multiply;
+}
+
