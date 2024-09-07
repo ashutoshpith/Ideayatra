@@ -9,16 +9,12 @@ import { getLandingPage } from "@studio/lib/queries";
 import Category from "../components/Category";
 import Spinner from "../components/Icons/Spinner";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import robot from "../../public/home_hero_4.jpg";
 import { sendGAEvent } from "@next/third-parties/google";
 import HeroSection from '@/components/Home/Hero'
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [landingPageData, setLandingPageData] = useState([]);
-  const router = useRouter();
   const isAnimatedPlayed = useRef(false);
   const linkRefs = useRef([]);
 

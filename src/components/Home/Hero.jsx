@@ -3,10 +3,12 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 import robot from '../../../public/home_hero_4.jpg';
+import {useRouter} from 'next/navigation'
 
 const EmpowerSection = () => {
   const robotRef = useRef(null);
   const textRef = useRef(null);
+  const router = useRouter()
 
   useEffect(() => {
     // Animation for robot image
@@ -36,7 +38,8 @@ const EmpowerSection = () => {
   }, []);
 
   return (
-    <div className="w-full h-auto py-10 flex flex-col lg:flex-row gap-10 lg:gap-20 px-10 lg:px-10 justify-between items-center relative">
+    <div className="w-full h-auto py-10 flex flex-col lg:flex-row gap-10 lg:gap-20 px-10
+     lg:px-10 justify-between items-center relative">
       
       {/* Text Section */}
       <div
@@ -56,7 +59,13 @@ const EmpowerSection = () => {
           a nurturing environment where innovation meets execution, bridging the
           gap between academic learning and real-world entrepreneurship.
         </p>
-        <button className="mt-8 bg-[#F48C06] text-white py-3 px-6 rounded-md text-lg font-semibold hover:bg-orange-600 transition-all">
+        <button 
+        className="mt-8 bg-[#F48C06] text-white py-3 px-6 rounded-md text-lg font-semibold
+         hover:bg-[#F48C06] transition-all"
+         onClick={
+           () => router.push("/contact-us")
+         }
+         >
           Join Now
         </button>
       </div>
