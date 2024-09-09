@@ -41,9 +41,6 @@ const Blog = () => {
         <title>{blog.seo.metaTitle || blog.title}</title>
         <meta name="description" content={blog.seo.metaDescription || ''} />
         <meta name="keywords" content={blog.seo.metaKeywords.join(", ")} />
-        <meta property="og:title" content={blog.seo.metaTitle || blog.title} />
-        <meta property="og:description" content={blog.seo.metaDescription || ''} />
-        <meta property="og:image" content={blog.mainImage.asset.url} />
 
         {/* Open Graph / Facebook */}
         <meta property="og:title" content={blog.seo.metaTitle || blog.title} />

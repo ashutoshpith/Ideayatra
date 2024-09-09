@@ -87,7 +87,7 @@ export default function EnrollSection() {
             autoComplete="off"
             onSubmit={handleSubmit(onFormSubmit)}
             className="flex flex-col items-center gap-4 w-full lg:w-[70%] xl:w-[50%]"
-          >
+          > 
             <div
               className={clsx(
                 "w-full flex items-center rounded-md border border-[#DDDDDD]",

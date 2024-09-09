@@ -46,7 +46,6 @@
   }
 
   .form-bg::after {
-    
     background-image: url("../../public/landingPage/enroll_girl.png");
     width: 550px;
     height: 620px;
