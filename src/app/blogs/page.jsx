@@ -19,8 +19,6 @@ export default function Blogs() {
     (async () => {
       setLoading(true);
       const blog = await fetchBlogs(6);
-      console.log("blogs", blog);
-      
       setBlogData(blog);
       setLoading(false);
     })();
@@ -51,6 +49,15 @@ export default function Blogs() {
   }
 
   return (
+    <>
+      <meta name="description" content="IdeaYatra Blogs" />
+      <meta name="keywords" content="edtech, education, startup, upskill" />
+      <meta property="og:title" content="IdeaYatra - Blogs" />
+      <meta property="og:description" content="IdeaYatra Blogs" />
+      <meta property="og:image" content="/public/ideayatra.png" />
+      <meta property="og:url" content="https://ideayatra.com" />
+      <meta name="twitter:card" content="summary_large_image" />
+
     <div className="flex flex-col px-4 lg:px-[5vw] xl:px-[10vw] py-36 w-full z-0 mt-10">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         
@@ -122,5 +129,6 @@ export default function Blogs() {
         </div>
       </div>
     </div>
+    </>
   );
 }

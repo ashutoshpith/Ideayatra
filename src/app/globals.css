@@ -38,17 +38,18 @@
 
   .form-bg::before {
     position: relative;
-    background-image: url("../../public/landingPage/enrollFormImage1.png");
-    width: 400px;
-    height: 400px;
+    background-image: url("../../public/landingPage/enroll_boy.png");
+    width: 550px;
+    height: 620px;
     z-index: 10;
     background-position: top;
   }
 
   .form-bg::after {
-    background-image: url("../../public/landingPage/enrollFormImage2.png");
-    width: 400px;
-    height: 400px;
+    
+    background-image: url("../../public/landingPage/enroll_girl.png");
+    width: 550px;
+    height: 620px;
     z-index: 10;
     background-position: top;
   }

@@ -61,7 +61,7 @@ const Blog = () => {
         <meta name="twitter:description" content={blog.seo.metaDescription || ''} />
         <meta name="twitter:image" content={blog.mainImage.asset.url} />
         <meta name="twitter:url" content={`https://ideayatra.com/blogs/${blog.slug.current}`} />
-        <meta name="twitter:site" content="@yourtwitterhandle" />
+        <meta name="twitter:site" content="@ideayatra" />
 
       </Head>
 

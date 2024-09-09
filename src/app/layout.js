@@ -10,19 +10,14 @@ const inter = Nunito_Sans({
   subsets: ['latin'], // Choose the subset you need
   weight: ['400', '700'], // Specify weights you need (e.g., regular, bold)
 });
+const ga_tag = process.env.GOOGLE_ANALYTIC_TAG
 
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <head>
-      <meta name="description" content="Empowering the student journey" />
-        <meta name="keywords" content="edtech, education, startup, upskill" />
-        <meta property="og:title" content="IdeaYatra" />
-        <meta property="og:description" content="Empowering the student journey" />
-        <meta property="og:image" content="/public/ideayatra.png" />
-        <meta property="og:url" content="https://ideayatra.com" />
-        <meta name="twitter:card" content="summary_large_image" />
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-62V7FZ0MPL" strategy="afterInteractive" />
+
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${ga_tag}`} strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive" >
         {
         `
@@ -30,7 +25,7 @@ const RootLayout = ({ children }) => {
                 function gtag(){dataLayer.push(arguments)}
                 gtag('js', new Date());
 
-                gtag('config', 'G-62V7FZ0MPL');
+                gtag('config', ${ga_tag});
         `
         }
         </Script>
@@ -46,7 +41,6 @@ const RootLayout = ({ children }) => {
           <ToastContainer />
         </LayoutWithNavbar>
       </body>
-      {/* <GoogleAnalytics gaId="G-C44KQRM0HN" /> */}
     </html>
   );
 }

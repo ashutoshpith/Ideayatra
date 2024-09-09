@@ -1,5 +1,5 @@
 {
-  "name": "tathasth",
+  "name": "ideayatra",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -45,12 +45,13 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "20.14.10",
-    "@types/react": "18.3.3",
+    "@types/node": "22.5.4",
+    "@types/react": "18.3.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "file-loader": "^6.2.0",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.5.4"
   }
 }
