@@ -4,7 +4,6 @@ import { getBlogPostBySlug } from "@studio/lib/queries";
 import { useEffect, useState } from "react";
 import Image from 'next/image';
 import { urlForImage } from '../../../../sanity/lib/image'
-import Head from 'next/head';
 
 const Blog = () => {
   const { id } = useParams();
@@ -39,7 +38,6 @@ const Blog = () => {
 
   return (
     <>
-    <Head>
         <title>{blog.seo.metaTitle || blog.title}</title>
         <meta name="description" content={blog.seo.metaDescription || ''} />
         <meta name="keywords" content={blog.seo.metaKeywords.join(", ")} />
@@ -63,7 +61,6 @@ const Blog = () => {
         <meta name="twitter:url" content={`https://ideayatra.com/blogs/${blog.slug.current}`} />
         <meta name="twitter:site" content="@ideayatra" />
 
-      </Head>
 
     <div className="flex flex-col px-4 md:px-8 md:my-4 sm:my-4 lg:px-12 py-36 w-full ">
       <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">

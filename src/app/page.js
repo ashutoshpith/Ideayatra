@@ -42,10 +42,10 @@ const Home = () => {
  
   return (
     <>
-        <meta name="description" content="Empowering Student Innovators" />
+        <meta name="description" content="IdeaYatra ermpower the next generation of thinkers, creators, and innovators." />
         <meta name="keywords" content="edtech, education, startup, upskill" />
         <meta property="og:title" content="IdeaYatra - Empowering Student Innovators" />
-        <meta property="og:description" content="Empowering Student Innovators" />
+        <meta property="og:description" content="IdeaYatra ermpower the next generation of thinkers, creators, and innovators." />
         <meta property="og:image" content="/public/ideayatra.png" />
         <meta property="og:url" content="https://ideayatra.com" />
         <meta name="twitter:card" content="summary_large_image" />
