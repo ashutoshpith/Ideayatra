@@ -28,7 +28,7 @@
   }
 }
 
-@layer components {
+/* @layer components {
   .form-bg::before,
   .form-bg::after {
     @apply inset-0 bg-cover bg-center;
@@ -52,7 +52,40 @@
     z-index: 10;
     background-position: top;
   }
-}
+} */
+ 
+/* @layer components {
+  .form-bg {
+    @apply relative flex justify-center items-center overflow-hidden;
+  }
+
+  .form-bg::before,
+  .form-bg::after {
+    @apply absolute bg-cover bg-center;
+    content: "";
+    z-index: -1;
+    width: 550px;
+    height: 620px;
+  }
+
+  .form-bg::before {
+    position: fixed;
+    background-image: url("../../public/landingPage/enroll_boy.png");
+    left: 0; 
+    top: 50%;
+    transform: translate(-10%, -50%); 
+  }
+
+  .form-bg::after {
+    position: fixed;
+
+    background-image: url("../../public/landingPage/enroll_girl.png");
+    right: 0; 
+    top: 50%;
+    transform: translate(10%, -50%); 
+  }
+} */
+
 
 .bg-texture {
   background: repeating-linear-gradient(

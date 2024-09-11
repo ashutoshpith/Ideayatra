@@ -51,24 +51,24 @@ const Home = () => {
         <meta name="twitter:card" content="summary_large_image" />
 
     <div
-      className="flex flex-col px-[5vw] xl:px-[10vw] lg:px-[5vw] py-28 w-full z-0 bg-[url('../../public/landingPage/backgroundBanner.png')] bg-no-repeat"
+      className="flex flex-col px-[5vw] xl:px-[10vw] lg:px-[5vw] py-28 w-full z-0 
+      bg-[url('../../public/landingPage/backgroundBanner.png')] bg-no-repeat"
       ref={(e) => {
         linkRefs.current[0] = e;
       }}
     >
-
       <HeroSection />
       <EnrollSection />
-  
       <div className="flex flex-col gap-4 lg:gap-8 mt-16 justify-center items-center">
         <p className="text-2xl md:text-[36px] text-[#2F327D] lg:text-[44px] font-semibold">
           Our<span className="text-[#F48C06]"> Popular Category</span>
         </p>
       </div>
-      {/* <div className="grid grid-flow-col auto-cols-max gap-4 lg:gap-8 overflow-auto hide-scrollbar mt-8"> */}
         <Category />
-      {/* </div> */}
     </div>
+  
+  
+  
     </>
   );
 };
