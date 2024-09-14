@@ -48,7 +48,7 @@ const About = () => {
 
   {/* Right Side - Images */}
   <div className="relative flex items-center justify-center mb-8 md:mb-0">
-    <div className="relative w-[250px] sm:w-[300px] md:w-[200px] lg:w-[250px] xl:w-[300px] h-auto">
+    <div className="relative w-[250px] sm:w-[300px] md:w-[200px] lg:w-[650px] xl:w-[600px] h-auto">
       {/* Placeholder for the first image */}
       <Image
         src={robot}
