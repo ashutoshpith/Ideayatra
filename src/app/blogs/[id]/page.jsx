@@ -36,17 +36,20 @@ const Blog = () => {
     );
   }
 
+  const seoTitle = blog.seo?.metaTitle || blog.title || 'Idea Yatra Blog'
+  const seoDescription = blog.seo?.metaDescription || 'Default description for IdeaYatra blog.'
+
   return (
     <>
-        <title>{blog.seo.metaTitle || blog.title}</title>
-        <meta name="description" content={blog.seo.metaDescription || ''} />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
         <meta name="keywords" content={blog.seo.metaKeywords.join(", ")} />
 
         {/* Open Graph / Facebook */}
-        <meta property="og:title" content={blog.seo.metaTitle || blog.title} />
-        <meta property="og:description" content={blog.seo.metaDescription || ''} />
-        <meta property="og:image" content={blog.mainImage.asset.url} />
-        <meta property="og:url" content={`https://ideayatra.com/blogs/${blog.slug.current}`} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:image" content={blog.mainImage?.asset?.url || 'https://ideayatra.com/default-image.jpg'} />
+        <meta property="og:url" content={`https://ideayatra.com/blogs/${blog.slug?.current}`} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="IdeaYatra" />
 
@@ -65,8 +68,8 @@ const Blog = () => {
         {blog.mainImage?.asset?.url && (
           <div className="relative w-full h-72">
             <Image
-              src={blog.mainImage.asset.url}
-              alt={blog.mainImage.alt || blog.title}
+              src={blog.mainImage?.asset?.url}
+              alt={blog.mainImage?.alt || blog?.title}
               layout="fill"
               objectFit="cover"
               className="rounded-t-lg"
@@ -118,8 +121,8 @@ const Blog = () => {
                 return (
                   <div key={index}>
                       <Image
-                        src={urlForImage(block.asset._ref) }
-                        alt={blog.mainImage.alt || blog.title}
+                        src={urlForImage(block?.asset?._ref) }
+                        alt={blog?.mainImage?.alt || blog?.title}
                         layout="responsive"
                         width={1200}
                         height={675}

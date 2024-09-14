@@ -32,14 +32,16 @@ const Navbar = ({ isHome }) => {
         className="h-[30px] aspect-[36/9] relative lg:h-[40px] cursor-pointer"
         onClick={() => router.push("/")}
       >
-        <Image src={logo} priority fill alt="logo" />
+        <Image src={logo} 
+          priority fill alt="logo"
+           />
       </div>
       <div className="hidden grow lg:flex flex-row items-center justify-end self-stretch gap-2 ">
         {RouteLinks.map(({ title, ...rest }, index) => (
           <div
             className={clsx(
               "self-stretch flex items-center justify-center relative hover:before:opacity-100 [&>.submenu]:hover:h-auto",
-              'before:content-[""] before:w-[calc(100%_+_30px)] before:h-[10px] before:absolute before:-left-[15px] before:top-[71px] before:rounded-[8px_8px_0px_0px] before:bg-mainTheme2/60 before:opacity-0'
+              'before:content-[""] before:w-[calc(100%_+_30px)] before:h-[10px] before:absolute before:-left-[15px] before:top-[71px] before:rounded-[8px_8px_0px_0px] before:bg-mainTheme2/80 before:opacity-0'
             )}
             key={rest.href}
             onMouseOver={() => setHoverIndex(index)}
