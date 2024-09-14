@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
-import robot from '../../../public/home_hero_4.jpg';
+import robot from '../../../public/banner_3.png';
 import {useRouter} from 'next/navigation'
 
 const EmpowerSection = () => {
@@ -75,12 +75,13 @@ const EmpowerSection = () => {
         ref={robotRef}
         className="w-full lg:w-[60%] flex justify-center items-center relative hidden lg:block"
       >
-        <div className="relative w-[250px] h-[250px] lg:w-[600px] lg:h-[600px] rounded-full flex items-center justify-center text-white text-2xl lg:text-4xl font-bold">
+        <div className="relative w-[250px] h-[250px] lg:w-[900px] lg:h-[600px] rounded-full my-4
+        flex items-center justify-center text-white text-2xl lg:text-4xl font-bold">
           {/* 🤖 Idea Yatra */}
           <Image
             src={robot}
-            width={800} // Adjust size as needed
-            height={800} // Adjust size as needed
+            width={750} // Adjust size as needed
+            height={750} // Adjust size as needed
             alt="Foreground Robot"
             className="object-cover"
           />

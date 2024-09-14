@@ -51,7 +51,7 @@ const Home = () => {
         <meta name="twitter:card" content="summary_large_image" />
 
     <div
-      className="flex flex-col px-[5vw] xl:px-[10vw] lg:px-[5vw] py-28 w-full z-0 
+      className="flex flex-col px-[5vw] xl:px-[10vw] lg:px-[5vw] py-28 w-full z-0 my-6
       bg-[url('../../public/landingPage/backgroundBanner.png')] bg-no-repeat"
       ref={(e) => {
         linkRefs.current[0] = e;
