@@ -5,6 +5,7 @@ import CardTwo from "./Icons/Landingpage/Card2";
 import CardThree from "./Icons/Landingpage/Card3";
 import CardFour from "./Icons/Landingpage/Card4";
 import CardFive from "./Icons/Landingpage/Card5";
+import CardSix from "./Icons/Landingpage/Card6";
 import { useCallback, useState } from "react";
 
 const groupCategory = [
@@ -17,8 +18,8 @@ const groupCategory = [
   {
     id: 2,
     icon: CardTwo,
-    title: "Comprehensive Incubator Support",
-    description: `IdeaYatra provides a full-fledged incubator environment, offering resources such as technology infrastructure, and access to industry experts. We create an ecosystem that simulates a real startup environment.`,
+    title: "Comprehensive Mentorship Program",
+    description: `IdeaYatra provides a full-fledged environment, offering resources such as technology infrastructure, and access to industry experts. We create an ecosystem that simulates a real startup environment.`,
   },
   {
     id: 3,
@@ -38,6 +39,12 @@ const groupCategory = [
     title: "Market-Ready Product Development",
     description: `Our goal is to help students create products that are not just functional, but also market-ready. We focus on aspects like user experience, market fit, and scalability to ensure the product's viability in the real world.`,
   },
+  {
+    id: 6,
+    icon: CardSix,
+    title: 'Corporate Culture Immersion',
+    description: 'IdeaYatra’s Corporate Culture Training prepares students for the professional world by enhancing their communication, leadership, and problem-solving skills. Through real-world projects and mentorship, we ensure students are ready to excel in corporate environments.'
+  }
 ];
 
 const Category = () => {
