@@ -9,6 +9,14 @@ const About = () => {
   const router = useRouter()
   return (
     <>
+      <meta name="description" content="IdeaYatra ermpower the next generation of thinkers, creators, and innovators." />
+      <meta name="keywords" content="edtech, education, startup, upskill" />
+      <meta property="og:title" content="IdeaYatra About - Empowering Student Innovators" />
+      <meta property="og:description" content="IdeaYatra ermpower the next generation of thinkers, creators, and innovators." />
+      <meta property="og:image" content="/public/ideayatra.png" />
+      <meta property="og:url" content="https://ideayatra.com" />
+      <meta name="twitter:card" content="summary_large_image" />
+
      <div className="container my-56 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center justify-between py-8">
   {/* Left Side - Text Content */}
   <div className="text-center md:text-left max-w-lg">
@@ -23,7 +31,7 @@ const About = () => {
     <p className="text-3xl sm:text-4xl font-extrabold text-mainTheme2 py-2">What We Do</p>
     <p>
       Idea Yatra is a unique platform designed to bridge the gap between imagination and implementation.
-      We focus on guiding engineering students through the entire journey of innovation—from the initial spark of an idea to the development of a market-ready product. 
+      We focus on guiding engineering students through the entire journey of innovation from the initial spark of an idea to the development of a market-ready product. 
       By fostering creativity and providing hands-on experience, we prepare our participants to meet the challenges of the real world and make a lasting impact in their fields.
     </p>
     </div>
