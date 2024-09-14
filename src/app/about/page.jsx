@@ -20,7 +20,7 @@ const About = () => {
      <div className="container my-56 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center justify-between py-8">
   {/* Left Side - Text Content */}
   <div className="text-center md:text-left max-w-lg">
-    <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight sm:leading-snug">
+    <h1 className="text-3xl sm:text-4xl font-extrabold text-mainTheme3 tracking-tight leading-tight sm:leading-snug">
       Transforming Ideas into <span className="text-mainTheme2">MVP Innovations</span>
     </h1>
     <p className="mt-4 text-gray-600 text-base sm:text-lg">

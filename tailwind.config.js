@@ -29,6 +29,7 @@ module.exports = {
       colors: {
         mainTheme: '#F3EEEC',
         mainTheme2: '#F48C06',
+        mainTheme3: '#2F327D',
         backgroundImage: {
           'landingHero': "url('./public/landingPage/tathasth.jpg')",
           "bannerBackground-image": "url('./public/landingPage/backgroundBaner.png')"
