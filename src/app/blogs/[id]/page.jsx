@@ -38,28 +38,21 @@ const Blog = () => {
 
   const seoTitle = blog.seo?.metaTitle || blog.title || 'Idea Yatra Blog'
   const seoDescription = blog.seo?.metaDescription || 'Default description for IdeaYatra blog.'
+  const seoBlogUrl = `https://ideayatra.com/blogs/${blog.slug?.current}`
+  const seoBlogImageUrl = blog.mainImage?.asset?.url || 'https://ideayatra.com/default-image.jpg'
+  const seoBlogKeyword = blog.seo.metaKeywords.join(", ")
+
+  {/* Open Graph / Facebook */}
 
   return (
     <>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
-        <meta name="keywords" content={blog.seo.metaKeywords.join(", ")} />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDescription} />
-        <meta property="og:image" content={blog.mainImage?.asset?.url || 'https://ideayatra.com/default-image.jpg'} />
-        <meta property="og:url" content={`https://ideayatra.com/blogs/${blog.slug?.current}`} />
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="IdeaYatra" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blog.seo.metaTitle || blog.title} />
-        <meta name="twitter:description" content={blog.seo.metaDescription || ''} />
-        <meta name="twitter:image" content={blog.mainImage.asset.url} />
-        <meta name="twitter:url" content={`https://ideayatra.com/blogs/${blog.slug.current}`} />
-        <meta name="twitter:site" content="@ideayatra" />
+      <meta name="description" content={seoDescription}/>
+      <meta name="keywords" content={seoBlogKeyword} />
+      <meta property="og:title" content={seoTitle} />
+      <meta property="og:description" content={seoDescription} />
+      <meta property="og:image" content={seoBlogImageUrl} />
+      <meta property="og:url" content={seoBlogUrl} />
+      <meta name="twitter:card" content="summary_large_image" />
 
 
     <div className="flex flex-col px-4 md:px-8 md:my-4 sm:my-4 lg:px-12 py-36 w-full ">
