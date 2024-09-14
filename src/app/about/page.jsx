@@ -16,7 +16,9 @@ const About = () => {
       <meta property="og:image" content="/public/ideayatra.png" />
       <meta property="og:url" content="https://ideayatra.com" />
       <meta name="twitter:card" content="summary_large_image" />
-      <div className="container my-24 sm:my-32 lg:my-48 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center justify-between">
+
+      <div className="container my-48 sm:my-48 lg:my-48 mx-auto max-w-7xl px-4 sm:px-6 
+      lg:px-8 flex flex-col-reverse md:flex-row items-center justify-between">
   {/* Left Side - Text Content */}
   <div className="text-center md:text-left max-w-lg space-y-6 sm:space-y-8">
     <h1 className="text-3xl sm:text-4xl font-extrabold text-mainTheme3 tracking-tight leading-tight sm:leading-snug">
