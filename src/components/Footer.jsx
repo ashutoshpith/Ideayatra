@@ -35,8 +35,6 @@ const footerSocialIcon = [
 ];
 
 const Footer = () => {
-  const isAnimatedPlayed = useRef(false);
-  const linkRefs = useRef([]);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -57,8 +55,6 @@ const Footer = () => {
   const onFormSubmit = async (e) => {
     setLoading(true);
     try {
-      console.log("e coming ", e);
-      
       await axios.post("/api/save-lead", e, {
         headers: {
           "content-type": "application/json",
@@ -102,128 +98,94 @@ const Footer = () => {
   };
 
   return (
-    <div
-      className="flex flex-col justify-center items-center border-t bg-[#252641] w-full"
-    >
-      <div className="w-[300px] md:w-full flex gap-3 md:gap-5 justify-between p-[5vw] md:px-[10vw] flex-col md:flex-row">
-        <div className="flex justify-center">
-          <div className="flex flex-col gap-2 md:gap-4 items-center">
-            <div
-              className="h-[30px] aspect-[36/9] relative lg:h-[40px] cursor-pointer"
-              onClick={() => router.push("/")}
-            >
-              <Image src={logo} fill alt="logo" />
-            </div>
-            <div className="flex flex-col gap-4 p-0 md:p-5">
-              <div className="flex flex-col">
-                <p className="text-white text-[18px] md:text-[24px] font-semibold">
-                  Contact Us
-                </p>
-                <p className="text-white text-[14px] md:text-[16px] cursor-pointer ">
-                  Call:
-                  <a href="tel://7700969697" className="hover:text-[#F48C06]">
-                    &nbsp; 7700969697
-                  </a>
-                </p>
-                <p className="text-white text-[14px] md:text-[16px]">
-                  Gurugram
-                </p>
-                <p className="text-white hover:text-[#F48C06] text-[14px] md:text-[16px]">
-                  <a href="mailto:ideayatra@gmail.com">ideayatra@gmail.com</a>
-                </p>
-              </div>
-              <div className="flex gap-2">
-                {footerSocialIcon.map((val, i) => {
-                  return <SocialIcon icon={val.icon} link={val.link} key={i} />;
-                })}
-              </div>
-            </div>
-          </div>
-          <div className="md:hidden flex flex-col items-center justify-center gap-4 p-5">
-            <div className="flex flex-col gap-2">
-              <p className="text-[18px] md:text-[24px] text-white font-semibold">
-                Explore
-              </p>
-              <p
-                className="text-white cursor-pointer hover:text-[#F48C06] mt-0 text-[16px]"
-                onClick={() => {
-                  router.push("/");
-                }}
-              >
-                Home
-              </p>
-              <p
-                className="text-white cursor-pointer hover:text-[#F48C06] text-[16px]"
-                onClick={() => router.push("/contact-us")}
-              >
-                Contact Us
-              </p>
-            </div>
-          </div>
+    <div className="flex flex-col justify-center items-center border-t bg-[#252641] w-full py-8 md:py-12">
+    <div className="w-full max-w-7xl flex flex-col md:flex-row gap-8 md:gap-16 justify-between px-6 md:px-12">
+      
+      {/* Logo and Contact Section */}
+      <div className="flex flex-col gap-6 items-center md:items-start">
+        <div
+          className="h-[30px] lg:h-[40px] aspect-[36/9] relative cursor-pointer"
+          onClick={() => router.push("/")}
+        >
+          <Image src={logo} fill alt="logo" />
         </div>
-        <div className="flex gap-5 md:gap-20 flex-row md:w-full justify-end">
-          <div className="md:block flex flex-col gap-4 p-5">
-            <div className="flex flex-col gap-2">
-              <p className="text-[18px] md:text-[24px] text-white font-semibold">
-                Explore
-              </p>
-              <p
-                className="text-white cursor-pointer hover:text-[#F48C06] mt-0 text-[16px]"
-                onClick={() => {
-                  router.push("/");
-                }}
-              >
-                Home
-              </p>
-              <p
-                className="text-white cursor-pointer hover:text-[#F48C06] text-[16px]"
-                onClick={() => router.push("/contact-us")}
-              >
-                Contact Us
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-2 !pr-0 md:p-5 w-[300px]">
-            <p className="text-[18px] md:text-[24px] text-white font-semibold">
-              Subscribe
-            </p>
-            <p
-              className="text-white cursor-pointer"
-              onClick={() => {
-                router.push("/");
-              }}
-            >
-              Connect With Us
-            </p>
-            <div className="w-full">
-              <form
-                className="flex flex-col gap-3"
-                autoComplete="off"
-                onSubmit={handleSubmit(onFormSubmit)}
-              >
-                <input
-                  className={clsx("p-2 md:p-4 rounded-md w-full border-white border focus:outline-none placeholder:text-grey", {
-                    "!border-rose-500 border-2": errors.email
-                  })}
-                  placeholder="Email Address"
-                  type="email"
-                  value={watch("email")}
-                  {...register("email", { required: true })}
-                  error={!!errors.email}
-                />
-                <button
-                  className="p-2 md:p-4 bg-[#F48C06] rounded-md hover:text-white text-[16px] w-full flex justify-center items-center"
-                  type="submit"
-                >
-                  {!loading ? "Submit" : <Spinner width={"20px"} height={"20px"} />}
-                </button>
-              </form>
-            </div>
-          </div>
+        <div className="text-center md:text-left">
+          <p className="text-white text-lg md:text-xl font-semibold">Contact Us</p>
+          <p className="text-white text-sm md:text-base">
+            Call: <a href="tel://7700969697" className="hover:text-[#F48C06]">7700969697</a>
+          </p>
+          <p className="text-white text-sm md:text-base">Gurugram</p>
+          <p className="text-white text-sm md:text-base hover:text-[#F48C06]">
+            <a href="mailto:ideayatra@gmail.com">ideayatra@gmail.com</a>
+          </p>
+        </div>
+        <div className="flex gap-2 justify-center md:justify-start">
+          {footerSocialIcon.map((val, i) => (
+            <SocialIcon icon={val.icon} link={val.link} key={i} />
+          ))}
         </div>
       </div>
-      <div className="text-white mb-4">© IdeaYatra Private Limited 2024</div>
+  
+      {/* Explore Section */}
+      <div className="flex flex-col gap-4 items-center md:items-start">
+        <p className="text-white text-lg md:text-xl font-semibold">Explore</p>
+        <p
+          className="text-white cursor-pointer hover:text-[#F48C06] text-base"
+          onClick={() => router.push("/")}
+        >
+          Home
+        </p>
+        <p
+          className="text-white cursor-pointer hover:text-[#F48C06] text-base"
+          onClick={() => router.push("/about")}
+        >
+          About
+        </p>
+        <p
+          className="text-white cursor-pointer hover:text-[#F48C06] text-base"
+          onClick={() => router.push("/blogs")}
+        >
+          Blogs
+        </p>
+        <p
+          className="text-white cursor-pointer hover:text-[#F48C06] text-base"
+          onClick={() => router.push("/contact-us")}
+        >
+          Contact Us
+        </p>
+      </div>
+  
+      {/* Subscribe Section */}
+      <div className="flex flex-col gap-4 w-full max-w-md">
+        <p className="text-white text-lg md:text-xl font-semibold">Subscribe</p>
+        <p className="text-white text-base cursor-pointer" onClick={() => router.push("/")}>
+          Connect With Us
+        </p>
+        <form className="flex flex-col gap-3" autoComplete="off" onSubmit={handleSubmit(onFormSubmit)}>
+          <input
+            className={clsx("p-3 md:p-4 rounded-md w-full border border-white bg-transparent focus:outline-none placeholder:text-gray-400 text-white", {
+              "border-rose-500 border-2": errors.email
+            })}
+            placeholder="Email Address"
+            type="email"
+            {...register("email", { required: true })}
+          />
+          <button
+            className="p-3 md:p-4 bg-[#F48C06] text-white rounded-md hover:bg-[#f68d20] transition-colors text-base"
+            type="submit"
+          >
+            {!loading ? "Submit" : <Spinner width={"20px"} height={"20px"} />}
+          </button>
+        </form>
+      </div>
     </div>
+  
+    {/* Footer Bottom */}
+    <div className="text-white text-center mt-6">
+      © IdeaYatra Private Limited 2024
+    </div>
+  </div>
+  
   );
 };
 export default Footer;
