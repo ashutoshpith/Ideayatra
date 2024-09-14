@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import React from "react";
 
 const CardThree = ({ className = "", fill = "", id = 3, ...rest }) => {
