@@ -5,6 +5,11 @@ const RouteLinks = [
     exact: true
   },
   {
+    title: 'About',
+    href: '/about',
+    exact: true
+  },
+  {
     title: 'Blogs',
     href: '/blogs',
     exact: true

@@ -1,60 +1,67 @@
+"use client";
+
 import React from 'react';
 import robot from "../../../public/about-group.png";
 import Image from "next/image";
+import {useRouter} from 'next/navigation'
 
-const HeroSection = () => {
+const About = () => {
+  const router = useRouter()
   return (
-    <div className="relative bg-gray-50 py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center justify-between">
-        {/* Left Side - Text Content */}
-        <div className="text-center md:text-left max-w-lg">
-          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">
-            Transforming Ideas into <span className="text-orange-500">MVP Innovations</span>
-          </h1>
-          <p className="mt-4 text-gray-600">
-            Unleashing the potential of engineering students by transforming their ideas into market-ready products. The unique incubator program provides a nurturing environment where innovation meets execution, bridging the gap between academic learning and real-world entrepreneurship.
-          </p>
-          <div className="mt-8">
-            <button className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow hover:bg-orange-600">
-              Contact us
-            </button>
-          </div>
-        </div>
+    <>
+     <div className="container my-56 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center justify-between py-8">
+  {/* Left Side - Text Content */}
+  <div className="text-center md:text-left max-w-lg">
+    <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight sm:leading-snug">
+      Transforming Ideas into <span className="text-mainTheme2">MVP Innovations</span>
+    </h1>
+    <p className="mt-4 text-gray-600 text-base sm:text-lg">
+     At Idea Yatra, We believe that every great innovation begins with a simple idea.
+     Our mission is to empower the next generation of thinkers, creators, and innovators by providing them with the tools and guidance they need to transform their ideas into reality.
+    </p>
+    <div className='py-10'>
+    <p className="text-3xl sm:text-4xl font-extrabold text-mainTheme2 py-2">What We Do</p>
+    <p>
+      Idea Yatra is a unique platform designed to bridge the gap between imagination and implementation.
+      We focus on guiding engineering students through the entire journey of innovation—from the initial spark of an idea to the development of a market-ready product. 
+      By fostering creativity and providing hands-on experience, we prepare our participants to meet the challenges of the real world and make a lasting impact in their fields.
+    </p>
+    </div>
+    <div className="mt-6 sm:mt-8">
+      <button 
+       onClick={
+        () => router.push("/contact-us")
+      }
+      className="bg-mainTheme2 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow hover:bg-orange-400 transition-all">
+        Contact us
+      </button>
+    </div>
+  </div>
 
-        {/* Right Side - Images */}
-        <div className="relative flex items-center justify-center mb-8 md:mb-0">
-          <div className="relative w-64 h-64 md:w-72 md:h-72">
-            {/* Placeholder for the first image */}
-            <Image
-            src={robot}
-            width={"300px"}
-            height={"auto"}
-            alt="Robot"
-            className="max-w-[300px] md:max-w-[200px] lg:max-w-[250px] xl:max-w-[300px]"
-          />
-            {/* Optional Instructor Badge */}
-            <div className="absolute -top-4 -right-4 flex items-center justify-center bg-white p-2 rounded-full shadow-lg">
-              <div className="text-center">
-                <span className="text-xs font-medium text-gray-700">250+ BEST INSTRUCTORS</span>
-              </div>
-            </div>
-          </div>
+  {/* Right Side - Images */}
+  <div className="relative flex items-center justify-center mb-8 md:mb-0">
+    <div className="relative w-[250px] sm:w-[300px] md:w-[200px] lg:w-[250px] xl:w-[300px] h-auto">
+      {/* Placeholder for the first image */}
+      <Image
+        src={robot}
+        width={600}
+        height={"auto"}
+        alt="Robot"
+        className="w-full h-auto"
+      />
+      {/* Optional Instructor Badge */}
+      <div className="absolute -top-4 -right-4 flex items-center justify-center bg-white p-2 rounded-full shadow-lg">
+        <div className="text-center">
+          <span className="text-xs font-medium text-gray-700">50+ BEST INSTRUCTORS</span>
         </div>
-      </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <svg
-          className="absolute w-full h-full transform scale-150"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-        >
-          <path fill="#fff" fillOpacity="1" d="M0,256L1440,320L1440,0L0,0Z"></path>
-        </svg>
       </div>
     </div>
+  </div>
+</div>
+
+    </>
+
   );
 };
 
-export default HeroSection;
+export default About;
