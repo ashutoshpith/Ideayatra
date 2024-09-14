@@ -46,12 +46,12 @@ const EmpowerSection = () => {
         ref={textRef}
         className="w-full lg:w-[40%] text-center lg:text-left flex flex-col justify-center"
       >
-        <p className="text-[#F48C06] text-xl lg:text-2xl font-semibold uppercase">
+        <p className="text-mainTheme2 text-xl lg:text-2xl font-semibold uppercase">
           Start to Success
         </p>
-        <h2 className="text-3xl lg:text-5xl font-bold text-[#2F327D] leading-tight mt-4">
+        <h2 className="text-3xl lg:text-5xl font-bold text-mainTheme3 leading-tight mt-4">
           The Journey of Ideas <br /> 
-          <span className="text-[#F48C06]">Begins Here</span> 
+          <span className="text-mainTheme2">Begins Here</span> 
         </h2>
         <p className="text-gray-700 mt-6">
           Unleashing the potential of engineering students by transforming their
@@ -60,8 +60,8 @@ const EmpowerSection = () => {
           gap between academic learning and real-world entrepreneurship.
         </p>
         <button 
-        className="mt-8 bg-[#F48C06] text-white py-3 px-6 rounded-md text-lg font-semibold
-         hover:bg-[#F48C06] transition-all"
+        className="mt-8 bg-mainTheme2 shadow-lg text-white py-3 px-6 rounded-md text-lg font-semibold
+         hover:bg-orange-400 transition-transform transform hover:scale-105"
          onClick={
            () => router.push("/contact-us")
          }
