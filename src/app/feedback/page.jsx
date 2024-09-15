@@ -11,7 +11,7 @@ const FeedbackForm = () => {
   const instructors = ['Simran Thakral','Toshal Lubana', 'Ashutosh Singh'];
 
   // Available event places
-  const eventPlaces = ['JMIT College', 'SRM University', 'IIT Madras'];
+  const eventPlaces = ['JMIT', 'SRM University', 'IIT Madras'];
 
   
   const [formData, setFormData] = useState({

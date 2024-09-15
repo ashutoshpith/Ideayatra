@@ -114,7 +114,7 @@ const Footer = () => {
           </p>
           <p className="text-white text-sm md:text-base">Gurugram</p>
           <p className="text-white text-sm md:text-base hover:text-[#F48C06]">
-            <a href="mailto:ideayatra@gmail.com">ideayatra@gmail.com</a>
+            <a href="mailto:helpdesk@ideayatra.com">helpdesk@ideayatra.com</a>
           </p>
         </div>
         <div className="flex gap-2 justify-center md:justify-start">
@@ -150,6 +150,12 @@ const Footer = () => {
           onClick={() => router.push("/contact-us")}
         >
           Contact Us
+        </p>
+        <p
+          className="text-white cursor-pointer hover:text-[#F48C06] text-base"
+          onClick={() => router.push("/feedback")}
+        >
+          Feedback
         </p>
       </div>
   
