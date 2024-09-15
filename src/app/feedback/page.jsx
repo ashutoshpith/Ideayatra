@@ -35,9 +35,9 @@ const FeedbackForm = () => {
     }));
   };
 
-  const handleSubmit = async (data) => {
+  const handleSubmit = async (e) => {
     setIsSubmitting(true);
-    // const data = formData
+    const data = formData
     try {
         await axios.post("/api/feedback", data, {
           headers: {

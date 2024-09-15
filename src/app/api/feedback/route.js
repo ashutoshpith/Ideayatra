@@ -25,6 +25,7 @@ export async function POST(req) {
     if (req.method === 'POST') {
       try {
         const data = await req.json();
+        
         const {
             name,
             email,
@@ -40,7 +41,7 @@ export async function POST(req) {
   
         const spreadsheetId = process.env.GOOGLE_FEEDBACK_SHEET_ID;
   
-        const reponse = await sheets.spreadsheets.values.append({
+        await sheets.spreadsheets.values.append({
           spreadsheetId,
           range: 'A1:J1', // Sheet tab name and range
           valueInputOption: 'USER_ENTERED',
@@ -61,8 +62,6 @@ export async function POST(req) {
             ],
           },
         });
-        console.log("DAta response ", reponse);
-        
        return NextResponse.json({
             message: "Data saved successfully!"
           });
