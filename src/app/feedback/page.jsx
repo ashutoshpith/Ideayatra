@@ -39,18 +39,16 @@ const FeedbackForm = () => {
     setIsSubmitting(true);
     // const data = formData
     try {
-        await Promise.all([
         await axios.post("/api/feedback", data, {
           headers: {
             "content-type": "application/json",
           },
-        }),
+        })
         await axios.post("/api/send-mail", data, {
           headers: {
             "content-type": "application/json",
           },
         })
-    ]);
       toast.success(
           "We have received your Feedback.",
           {
