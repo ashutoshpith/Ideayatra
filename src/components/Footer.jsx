@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { gsap, Power4 } from "gsap";
+import { useState } from "react";
 import Image from "next/image";
 import logo from "../../public/ideayatra.png";
 import Facebook from "./Icons/Footer/FacebookIcon";
@@ -9,7 +8,6 @@ import Instagram from "./Icons/Footer/Instagram";
 import LinkedIn from "./Icons/Footer/Linkedin";
 import SocialIcon from "../components/SocialIcon";
 import { useRouter } from "next/navigation";
-import { notFound } from "next/navigation";
 import { useForm } from "react-hook-form";
 import Spinner from "./Icons/Spinner";
 import { toast } from "react-toastify";
@@ -107,7 +105,7 @@ const Footer = () => {
           className="h-[30px] lg:h-[40px] aspect-[36/9] relative cursor-pointer"
           onClick={() => router.push("/")}
         >
-          <Image src={logo} fill alt="logo" />
+          <Image src={logo} sizes="" fill alt="logo" />
         </div>
         <div className="text-center md:text-left">
           <p className="text-white text-lg md:text-xl font-semibold">Contact Us</p>

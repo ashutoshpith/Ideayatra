@@ -4,6 +4,22 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 
 dayjs.extend(utc);
+const credentials = {
+  client_email: process.env.GOOGLE_CLIENT_EMAIL,
+  private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g,'\n'),
+}
+const scopes = [
+  "https://www.googleapis.com/auth/drive",
+  "https://www.googleapis.com/auth/drive.file",
+  "https://www.googleapis.com/auth/spreadsheets",
+]
+
+const auth = new google.auth.GoogleAuth({
+  credentials,
+  scopes
+});
+
+const sheets = google.sheets({ auth, version: "v4" });
 
 export async function POST(req) {
   try {
@@ -11,20 +27,7 @@ export async function POST(req) {
     const data = await req.json();
    
     const { firstName,lastName, email, contactNumber,inquiryType, message, pagePath } = data
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g,'\n'),
-      },
-      scopes: [
-        "https://www.googleapis.com/auth/drive",
-        "https://www.googleapis.com/auth/drive.file",
-        "https://www.googleapis.com/auth/spreadsheets",
-      ],
-    });
-
-    const sheets = google.sheets({ auth, version: "v4" });
-
+  
     // Append the data
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
@@ -63,3 +66,5 @@ export async function POST(req) {
     );
   }
 }
+
+

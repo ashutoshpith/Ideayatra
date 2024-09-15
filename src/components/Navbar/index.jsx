@@ -33,6 +33,7 @@ const Navbar = ({ isHome }) => {
         onClick={() => router.push("/")}
       >
         <Image src={logo} 
+          sizes=""
           priority fill alt="logo"
            />
       </div>
