@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 
 const FeedbackForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,31 +14,29 @@ const FeedbackForm = () => {
   // Available event places
   const eventPlaces = ['JMIT', 'SRM University', 'IIT Madras'];
 
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobile: '',
-    rating: '5',
-    instructor: '',
-    eventPlace: '',
-    workshopDate: '',
-    contentFeedback: '',
-    instructorFeedback: '',
-    suggestions: '',
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    clearErrors,
+  } = useForm({
+    defaultValues: {
+        name: '',
+        email: '',
+        mobile: '',
+        rating: '5',
+        instructor: '',
+        eventPlace: '',
+        workshopDate: '',
+        contentFeedback: '',
+        instructorFeedback: '',
+        suggestions: '',
+    },
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
+  
+  const onFormSubmit = async (data) => {
     setIsSubmitting(true);
-    const data = formData
     try {
         await axios.post("/api/feedback", data, {
           headers: {
@@ -50,7 +49,7 @@ const FeedbackForm = () => {
           },
         })
       toast.success(
-          "We have received your Feedback.",
+          "Your feedback has been submitted successfully. Thank you for sharing!",
           {
             position: "top-right",
             autoClose: 5000,
@@ -62,10 +61,8 @@ const FeedbackForm = () => {
             theme: "light",
           }
         );
-        
-
-        // reset();
-        // clearErrors();
+        reset();
+        clearErrors();
       } catch (error) {
         toast.error("Something went wrong, Please try again.", {
           position: "top-right",
@@ -92,7 +89,7 @@ const FeedbackForm = () => {
          <span className='text-mainTheme3'> JavaScript Workshop</span>
           <span className='text-mainTheme2'> Feedback </span>
         </h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onFormSubmit)}>
           {/* Name Field */}
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
@@ -102,8 +99,7 @@ const FeedbackForm = () => {
               type="text"
               id="name"
               name="name"
-              value={formData.name}
-              onChange={handleChange}
+              {...register("name", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Enter your name"
               required
@@ -119,8 +115,7 @@ const FeedbackForm = () => {
               type="email"
               id="email"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
+              {...register("email", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Enter your email"
               required
@@ -136,8 +131,7 @@ const FeedbackForm = () => {
               type="text"
               id="mobile"
               name="mobile"
-              value={formData.mobile}
-              onChange={handleChange}
+              {...register("mobile", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Enter your mobile number"
               required
@@ -152,8 +146,7 @@ const FeedbackForm = () => {
             <select
               id="rating"
               name="rating"
-              value={formData.rating}
-              onChange={handleChange}
+              {...register("rating", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
             >
               <option value="1">1 - Poor</option>
@@ -172,8 +165,7 @@ const FeedbackForm = () => {
             <select
               id="instructor"
               name="instructor"
-              value={formData.instructor}
-              onChange={handleChange}
+              {...register("instructor", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
               required
             >
@@ -194,8 +186,7 @@ const FeedbackForm = () => {
             <select
               id="eventPlace"
               name="eventPlace"
-              value={formData.eventPlace}
-              onChange={handleChange}
+              {...register("eventPlace", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
               required
             >
@@ -217,8 +208,7 @@ const FeedbackForm = () => {
               type="date"
               id="workshopDate"
               name="workshopDate"
-              value={formData.workshopDate}
-              onChange={handleChange}
+              {...register("workshopDate", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
               required
             />
@@ -232,8 +222,7 @@ const FeedbackForm = () => {
             <textarea
               id="contentFeedback"
               name="contentFeedback"
-              value={formData.contentFeedback}
-              onChange={handleChange}
+              {...register("contentFeedback", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
               rows="4"
               placeholder="How was the content of the workshop?"
@@ -249,8 +238,7 @@ const FeedbackForm = () => {
             <textarea
               id="instructorFeedback"
               name="instructorFeedback"
-              value={formData.instructorFeedback}
-              onChange={handleChange}
+              {...register("instructorFeedback", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
               rows="4"
               placeholder="How was the instructor's teaching?"
@@ -266,8 +254,7 @@ const FeedbackForm = () => {
             <textarea
               id="suggestions"
               name="suggestions"
-              value={formData.suggestions}
-              onChange={handleChange}
+              {...register("suggestions", { required: true })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
               rows="4"
               placeholder="Any suggestions to improve the workshop?"
@@ -288,7 +275,6 @@ const FeedbackForm = () => {
                   } transition-colors`}
               disabled={isSubmitting}
             >
-              
               {isSubmitting ? "Submitting..." : "Submit Feedback"}
             </button>
           </div>
