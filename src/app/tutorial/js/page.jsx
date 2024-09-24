@@ -1,14 +1,14 @@
 "use client";
 
-import BlogCard from "../../components/BlogCard";
-import { fetchBlogs } from "@studio/lib/queries";
+import BlogCard from "../../../components/BlogCard";
+import { fetchJsTutorials } from "@studio/lib/queries";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
 import { clsx } from "clsx";
 
-export default function Blogs() {
+export default function Js() {
   const [loading, setLoading] = useState(false);
-  const [blogData, setBlogData] = useState([]);
+  const [jsTutorialData, setJsTutorialData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false); // Manage focus state
   const router = useRouter();
@@ -18,22 +18,22 @@ export default function Blogs() {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const blog = await fetchBlogs(6);
-      setBlogData(blog);
+      const blog = await fetchJsTutorials(6);
+      setJsTutorialData(blog);
       setLoading(false);
     })();
   }, []);
 
-  const handleClick = (blogId) => {
-    router.push(`/blogs/${blogId}`);
+  const handleJsRedirectClick = (blogId) => {
+    router.push(`/tutorial/js/${blogId}`);
   };
 
-  // Extract unique tags from blogData
-  const tags = blogData.map(blogs => blogs.tags);
+  // Extract unique tags from jsTutorialData
+  const tags = jsTutorialData.map(blogs => blogs.tags);
   const uniqueTags = [...new Set(tags.flatMap(tagArray => Object.values(tagArray)))];
 
   // Filter blogs based on selected category and search query
-  const filteredBlogs = blogData
+  const filteredBlogs = jsTutorialData
     .filter((blog) => {
       const matchesCategory = selectedCategory ? blog.tags.includes(selectedCategory) : true;
       const matchesSearch = blog.title.toLowerCase().includes(searchQuery.toLowerCase());
@@ -100,7 +100,7 @@ export default function Blogs() {
           <div className="mb-4">
             <input
               type="text"
-              placeholder="Search by Blog title..."
+              placeholder="Search by Tutorial title..."
               className={clsx(
                 "w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-0",
                 isFocused ? 'border-mainTheme2' : 'border-gray-300' // Set border color based on focus state
@@ -120,10 +120,10 @@ export default function Blogs() {
                 blogId={val.slug.current}
                 blogTitle={val.title}
                 blogDescription={val.excerpt}
-                blogImage={val.mainImage.asset.url}
+                blogImage={val.mainImage?.asset?.url}
                 publishedAt={val.publishedAt}
-                pagePath="blogs"
-                onClick={() => handleClick(val.slug.current)}
+                pagePath="tutorial/js"
+                onClick={() => handleJsRedirectClick(val.slug.current)}
               />
             ))}
           </div>

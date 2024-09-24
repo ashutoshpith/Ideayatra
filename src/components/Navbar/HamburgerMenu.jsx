@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import NavLink from '../UI/NavLink';
 import { useRouter } from 'next/navigation';
 import { gsap, Power4 } from 'gsap';
-import ArrowIcon from '../Icons/ArrowIcon';
 import RouteLinks from '../RouteLinks';
 
 const commonClass =

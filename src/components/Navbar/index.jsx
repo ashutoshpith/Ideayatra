@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavLink from "../UI/NavLink";
 import HamburgerMenu from "./HamburgerMenu";
 import RouteLinks from "../RouteLinks";
@@ -11,11 +11,6 @@ const Navbar = ({ isHome }) => {
   const router = useRouter();
   const [hoverIndex, setHoverIndex] = useState(-1);
 
-  const getDirection = (index) => {
-    const mid = Math.floor(RouteLinks.length / 2);
-    if (index <= mid) return "left";
-    if (index > mid) return "right";
-  };
 
   useEffect(() => {
     setHoverIndex(-1);

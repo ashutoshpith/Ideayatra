@@ -2,9 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogCard = ({ blogId, blogTitle, blogDescription, blogImage, publishedAt, onClick }) => {
+const BlogCard = ({ blogId, blogTitle, blogDescription, blogImage, publishedAt, pagePath, onClick }) => {
 
-    const blogUrl = `/blogs/${blogId}`;
+    const blogUrl = `/${pagePath}/${blogId}`;
+    console.log("blog url ", blogUrl);
+    
     
   return (
     <div
@@ -22,7 +24,7 @@ const BlogCard = ({ blogId, blogTitle, blogDescription, blogImage, publishedAt, 
       </div>
       <div class="h-1/2 p-4 ">
         <h3 class="mb-2 text-base font-semibold text-blue-800">
-          <Link href={blogUrl}  class="hover:underline">
+          <Link href={blogUrl}  class="hover:underline">  
             {blogTitle} 
           </Link>
         </h3>
@@ -34,7 +36,7 @@ const BlogCard = ({ blogId, blogTitle, blogDescription, blogImage, publishedAt, 
           {blogDescription.length > 30 ? (
             <p>
               {blogDescription.slice(0, 100)} ...
-              <span className="cursor-pointer text-blue-800 hover:underline" onClick={(e) => onClick({blogId})}>
+              <span className="cursor-pointer text-blue-800 hover:underline" onClick={(e) => onClick({blogUrl})}>
                 Read More
               </span>
             </p>
