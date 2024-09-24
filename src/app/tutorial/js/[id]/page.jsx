@@ -106,7 +106,6 @@ const JsBlog = () => {
   const seoBlogImageUrl = blog.mainImage?.asset?.url || 'https://ideayatra.com/default-image.jpg'
   const seoBlogKeyword = blog.seo.metaKeywords.join(", ")
 
-  console.log("tutorial ", blog);
   
 
   return (
@@ -121,50 +120,49 @@ const JsBlog = () => {
 
       
       <div className="flex flex-col px-4 md:px-8 lg:px-12 py-10 lg:py-44">
-  <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-    <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 text-center py-6 px-4">
-      {blog.title}
-    </h1>
-    
-    {blog.mainImage?.asset?.url && (
-      <div className="relative w-full h-60 md:h-80 lg:h-96">
-        <Image
-          src={blog.mainImage?.asset?.url}
-          alt={blog.mainImage?.alt || blog?.title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-t-lg"
-        />
-      </div>
-    )}
-
-    <div className="px-6 md:px-8 py-6">
-      {/* Aligning author, designation, and published date on the same line */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between text-gray-600 border-b border-gray-200 pb-4">
-        <div className="flex items-center space-x-2">
-          <span className="font-semibold">Author:</span>
-          <span className="text-sm md:text-base text-gray-800">{blog.author.name}</span>
-        </div>
+    <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 text-center py-6 px-4">
+        {blog.title}
+        </h1>
         
-        <div className="flex items-center space-x-2 mt-2 md:mt-0">
-          <span className="font-semibold">Designation:</span>
-          <span className="text-sm md:text-base text-red-500">{blog.author.bio}</span>
+        {blog.mainImage?.asset?.url && (
+        <div className="relative w-full h-60 md:h-80 lg:h-96">
+            <Image
+            src={blog.mainImage?.asset?.url}
+            alt={blog.mainImage?.alt || blog?.title}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-t-lg"
+            />
         </div>
-        
-        <div className="flex items-center space-x-2 mt-2 md:mt-0">
-          <span className="font-semibold">Published:</span>
-          <span className="text-sm md:text-base">{new Date(blog.publishedAt).toLocaleDateString()}</span>
-        </div>
-      </div>
+        )}
 
-      <div className="mt-6">
-        {/* Rendering PortableText content with customized styles */}
-        <PortableText value={blog.body} components={components} />
-      </div>
+        <div className="px-6 md:px-8 py-6">
+        {/* Aligning author, designation, and published date on the same line */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between text-gray-600 border-b border-gray-200 pb-4">
+            <div className="flex items-center space-x-2">
+            <span className="font-semibold">Author:</span>
+            <span className="text-sm md:text-base text-gray-800">{blog.author.name}</span>
+            </div>
+            
+            <div className="flex items-center space-x-2 mt-2 md:mt-0">
+            <span className="font-semibold">Designation:</span>
+            <span className="text-sm md:text-base text-red-500">{blog.author.bio}</span>
+            </div>
+            
+            <div className="flex items-center space-x-2 mt-2 md:mt-0">
+            <span className="font-semibold">Published:</span>
+            <span className="text-sm md:text-base">{new Date(blog.publishedAt).toLocaleDateString()}</span>
+            </div>
+        </div>
+
+        <div className="mt-6">
+            {/* Rendering PortableText content with customized styles */}
+            <PortableText value={blog.body} components={components} />
+        </div>
+        </div>
     </div>
-  </div>
-</div>
-
+    </div>
 
     </>
   );
