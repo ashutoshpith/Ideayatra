@@ -24,6 +24,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
+    "dotenv": "^16.4.5",
     "embla-carousel-react": "^8.1.6",
     "flowbite": "^2.5.1",
     "flowbite-react": "^0.10.1",
@@ -43,7 +44,8 @@
     "sharp": "^0.33.5",
     "styled-components": "^6.1.11",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zeptomail": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "22.5.4",

@@ -12,6 +12,8 @@ import {
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+// import { sendMail  } from "../../store/sendEmail";
+import { enrollStudentApi } from "../store/enrollStudent";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,16 +40,24 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      await axios.post("/api/save-lead", data, {
-        headers: {
-          "content-type": "application/json",
-        },
-      });
-      await axios.post("/api/send-mail", data, {
-        headers: {
-          "content-type": "application/json",
-        },
-      });
+      // await axios.post("/api/save-lead", data, {
+      //   headers: {
+      //     "content-type": "application/json",
+      //   },
+      // });
+      // sendMail(
+      //   data.firstName + " " + data.lastName, data.email, "https://www.ideayatra.com/contact-us", "September 28", "https://www.ideayatra.com/"
+      // )
+      // console.log("Data in ", data);
+      
+      await enrollStudentApi({
+        email: data?.email,
+        firstName: data?.firstName,
+        lastName: data?.lastName,
+        mobile: data?.contactNumber
+
+      })
+
       toast.success(
         "We have received your message. We will reach out to you in the next 24 hours.",
         {

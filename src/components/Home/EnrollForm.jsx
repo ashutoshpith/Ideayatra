@@ -3,10 +3,10 @@
 import { clsx } from "clsx";
 import Spinner from "../../components/Icons/Spinner";
 import { useState } from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { sendGAEvent } from "@next/third-parties/google";
+import { enrollStudentApi } from "../../app/store/enrollStudent";
 
 export default function EnrollForm() {
     const [loading, setLoading] = useState(false);
@@ -32,16 +32,22 @@ export default function EnrollForm() {
       const onFormSubmit = async (e) => {
         setLoading(true);
         try {
-          await axios.post("/api/save-lead", e, {
-            headers: {
-              "content-type": "application/json",
-            },
-          });
-          await axios.post("/api/send-mail", e, {
-            headers: {
-              "content-type": "application/json",
-            },
-          });
+
+          // await axios.post("/api/save-lead", e, {
+          //   headers: {
+          //     "content-type": "application/json",
+          //   },
+          // });
+          // sendMail(
+          //   e.firstName + " " + e.lastName, e.email, "https://www.ideayatra.com/contact-us", "September 28", "https://www.ideayatra.com/"
+          // )
+          await enrollStudentApi({
+            email: e?.email,
+            firstName: e?.firstName,
+            lastName: e?.lastName,
+            mobile: e?.contactNumber
+    
+          })
           toast.success(
             "We have received your message. We will reach out to you in next 24 hours.",
             {
